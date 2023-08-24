@@ -1,0 +1,15 @@
+.input{
+    height: 75px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end; /*queremos que el texto se alinee a la derecha*/
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: rgb(14, 13, 13);
+    color: antiquewhite;
+    padding: 11px 30px 11px 11px;
+    margin: 1px solid gray;
+    box-shadow: -1px 4px 1px 1px white;
+}
