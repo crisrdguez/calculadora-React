@@ -12,7 +12,14 @@ function App() {
 
   //agregar input
   const agregarInput = val =>{
-    setInput(input + val)
+    //condicion para que solo pueda haber un * - * /
+    if (
+      (val === '+' || val === '-' || val === '*' || val === '/') &&
+      (input.endsWith('+') || input.endsWith('-') || input.endsWith('*') || input.endsWith('/'))
+    ) {
+      return; // Evitar agregar más de un operador seguido
+    }
+    setInput(input + val); 
   };
 
   //Calcular resultado
@@ -65,19 +72,19 @@ function App() {
         <Boton manejarClic={agregarInput}>9</Boton>
         <Boton manejarClic={agregarInput}>*</Boton>
         </div>
-
+        {/**Otra opcion: con funcion anonima */}
         <div className="fila">
-        <Boton manejarClic={calcularResultado}>=</Boton>
+        <BotonClear manejarClear={() => setInput('')}>
+            Clear
+        </BotonClear>       
         <Boton manejarClic={agregarInput}>0</Boton>
         <Boton manejarClic={agregarInput}>.</Boton>
         <Boton manejarClic={agregarInput}>/</Boton>
         </div>
 
-        {/**Otra opcion: con funcion anonima */}
+        
         <div className="fila">
-          <BotonClear manejarClear={() => setInput('')}>
-            Clear
-          </BotonClear>
+        <Boton manejarClic={calcularResultado}>=</Boton>
         </div>
 
       </div>
